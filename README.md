@@ -20,4 +20,29 @@
 |POST|/v1/tokens/authentication|Generate a new authentication token|
 |POST|/v1/tokens/password-reset|Generate a new password-reset token|
 |GET|/debug/vars|Display applicatoin metrics|
+
+</details>
+
+<details>
+<summary>Project directory structure</summary>
+<br>
+.
+├── bin
+├── cmd
+│   └── api
+│       └── main.go
+├── go.mod
+├── internal
+├── Makefile
+├── migrations
+└── remote
+
+- The `bin` directory contains compiled application binaries, ready for deployment to a production server.
+- The `cmd/api` directory contains the application-specific code for our *Greenlight* API application. Includes code for running the server, reading and writing HTTP requests, and managing authentication.
+- The `internal` directory contains various ancillary packages used by our API: the code for interacting with our database, data validation, sending emails etc. Any code, which is not application-specific and can potentially be reused.
+- The `migrations` direcory contains the SQL migration files for our database.
+- The `remote` directory contains the configuration files and setup scripts for our production server.
+- The `go.mod` file declares our project dependencies, version and module path.
+- The `Makefile` contains *recipes* for automating common administrative tasks -- auditing Go code, building binaries, and executing database migrations.
+
 </details>
